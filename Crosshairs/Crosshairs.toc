@@ -1,0 +1,8 @@
+## Interface: 30300
+## Author: Semlar
+## Title: Crosshairs
+## Version: 9.0.2.0
+## Notes: Animated target indicator
+
+Embeds.xml
+Crosshairs.lua
