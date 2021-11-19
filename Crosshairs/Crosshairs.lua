@@ -1,9 +1,9 @@
 local LibNameplates = LibStub("LibNameplates-1.0")
 if not LibNameplates then return end
 
-local alpha = 0.5 -- Overall alpha
+local alpha = 0.75 -- Overall alpha
 local speed = 0.1 -- seconds to fade textures in and out
-local lineAlpha = 0.2 -- Set to 0 to hide lines but keep the circle
+local lineAlpha = 0.5 -- Set to 0 to hide lines but keep the circle
 
 local UIFrameFadeIn = UIFrameFadeIn
 local CreateFrame = CreateFrame
