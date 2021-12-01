@@ -1,8 +1,9 @@
 ## Interface: 30300
-## Author: Semlar
+## Author: Semlar (Kader Backport)
 ## Title: Crosshairs
 ## Version: 9.0.2.0
 ## Notes: Animated target indicator
+## X-Date: 2021-12-01 @ 01:04 AM |cff808080UTC|r
 
 Embeds.xml
 Crosshairs.lua
