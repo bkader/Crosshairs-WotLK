@@ -167,7 +167,6 @@ function f:LibNameplates_FoundGUID(_, nameplate, guid, unit)
 		FocusPlate(nameplate)
 	end
 end
-LibNameplates.RegisterCallback(f, "LibNameplates_FoundGUID")
 
 function f:LibNameplates_RecycleNameplate(_, nameplate)
 	if nameplate and self.plate == nameplate then
@@ -175,12 +174,21 @@ function f:LibNameplates_RecycleNameplate(_, nameplate)
 		self:Hide()
 	end
 end
-LibNameplates.RegisterCallback(f, "LibNameplates_RecycleNameplate")
+
+function f:ADDON_LOADED(name)
+	if name == "Crosshairs" then
+		self:UnregisterEvent("ADDON_LOADED")
+		self:RegisterEvent("PLAYER_ENTERING_WORLD")
+		LibNameplates.RegisterCallback(self, "LibNameplates_FoundGUID")
+		LibNameplates.RegisterCallback(self, "LibNameplates_RecycleNameplate")
+	end
+end
 
 function f:PLAYER_ENTERING_WORLD()
+	self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 	self:RegisterEvent("PLAYER_TARGET_CHANGED")
 	self:PLAYER_TARGET_CHANGED()
 end
-f:RegisterEvent("PLAYER_ENTERING_WORLD")
+f:RegisterEvent("ADDON_LOADED")
 
 f:SetScript("OnEvent", function(self, event, ...) return self[event] and self[event](self, ...) end)
